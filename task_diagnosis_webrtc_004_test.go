@@ -14,4 +14,7 @@ func TestTaskDiagnosisWebrtc004SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if handler, ok := pc.onICEConnectionStateChangeHandler.Load().(func(ICEConnectionState)); ok && handler != nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if handler, ok := pc.onICEConnectionStateChangeHandler.Load().(func(ICEConnectionState)); ok && handler == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

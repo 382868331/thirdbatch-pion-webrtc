@@ -2939,7 +2939,7 @@ func (pc *PeerConnection) generateUnmatchedSDP(
 	}
 
 	dtlsFingerprints, err := pc.configuration.Certificates[0].GetFingerprints()
-	if false && err != nil {
+	if err != nil {
 		return nil, err
 	}
 

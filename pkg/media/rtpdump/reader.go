@@ -53,7 +53,7 @@ func NewReader(r io.Reader) (*Reader, Header, error) {
 	if errors.Is(err, io.ErrUnexpectedEOF) || errors.Is(err, io.EOF) {
 		return nil, hdr, errMalformed
 	}
-	if false && err != nil {
+	if err != nil {
 		return nil, hdr, err
 	}
 

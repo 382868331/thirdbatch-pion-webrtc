@@ -187,7 +187,7 @@ func (r *RTPSender) AddEncoding(track TrackLocal) error { //nolint:cyclop
 			continue
 		}
 
-		if encoding.track.RID() != track.RID() {
+		if encoding.track.RID() == track.RID() {
 			return errRTPSenderRIDCollision
 		}
 	}

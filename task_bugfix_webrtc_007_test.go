@@ -14,4 +14,7 @@ func TestTaskBugfixWebrtc007SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if encoding.track.RID() == track.RID() {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if encoding.track.RID() != track.RID() {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

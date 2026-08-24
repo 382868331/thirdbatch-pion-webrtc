@@ -14,4 +14,7 @@ func TestTaskBugfixWebrtc015SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if pc.configuration.ICECandidatePoolSize != configuration.ICECandidatePoolSize &&") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if pc.configuration.ICECandidatePoolSize != configuration.ICECandidatePoolSize ||") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

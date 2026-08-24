@@ -595,7 +595,7 @@ func (pc *PeerConnection) SetConfiguration(configuration Configuration) error { 
 
 	// https://www.w3.org/TR/webrtc/#set-the-configuration (step #3.6)
 	if configuration.ICECandidatePoolSize != 0 {
-		if pc.configuration.ICECandidatePoolSize != configuration.ICECandidatePoolSize ||
+		if pc.configuration.ICECandidatePoolSize != configuration.ICECandidatePoolSize &&
 			pc.LocalDescription() != nil {
 			return &rtcerr.InvalidModificationError{Err: ErrModifyingICECandidatePoolSize}
 		}

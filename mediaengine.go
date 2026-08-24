@@ -852,7 +852,7 @@ func (m *MediaEngine) isRTXEnabled(typ RTPCodecType, directions []RTPTransceiver
 func (m *MediaEngine) isFECEnabled(typ RTPCodecType, directions []RTPTransceiverDirection) bool {
 	for _, p := range m.getRTPParametersByKind(typ, directions).Codecs {
 		if strings.Contains(strings.ToLower(p.MimeType), MimeTypeFlexFEC) {
-			return false
+			return true
 		}
 	}
 

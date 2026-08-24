@@ -14,4 +14,7 @@ func TestTaskBugfixWebrtc001SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if _, taken := m.negotiatedHeaderExtensions[id]; idAvailable && !taken {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if _, taken := m.negotiatedHeaderExtensions[id]; idAvailable || !taken {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

